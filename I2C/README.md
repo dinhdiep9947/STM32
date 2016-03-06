@@ -157,20 +157,23 @@ DMA request (khi cho phép) được tạo ra chỉ cho việc truyền dữ li�
 
 #### Phát sử dụng DMA
 
-Chế độ DMA có thể cho phép việc truyền bằng cách cài đặt bit DMAEN trong thanh ghi I2C_CR2. Dữ liệu sẽ được tải từ 1 vùng Bộ nhớ được định trước sử dụng ngoại vi DMA tới thanh ghi I2C_DR bất cứ lúc nào nếu TxE được set. Để sắp đặt 1 kênh DMA cho truyền thông I2C, thực hiện chuỗi sau: (x là số kênh truyền)
-- Set địa chỉ thanh ghi I2C_DR trong thanh ghi DMA_CPARx. Dữ liệu sẽ được chuyển từ địa chỉ này từ bộ nhớ sau mỗi sự kiện TxE.
-- Set địa chỉ bộ nhớ trong thanh ghi DMA_CMARx. Dữ liệu sẽ được tải vào I2C_DR từ bộ nhớ sau mỗi sự kiện TxE.
-- Cấu hình tổng số byte được truyền đi trong thanh ghi DMA_CNDTRx. Sau mỗi sự kiện TxE, giá trị này sẽ giảm bớt.
-- Cấu hình độ ưu tiên kênh truyền sử dụng bit PL[0:1] trong thanh ghi DMA_CCRx.
+Chế độ DMA có thể cho phép việc truyền bằng cách cài đặt bit DMAEN trong thanh ghi I2C\_CR2. Dữ liệu sẽ được tải từ 1 vùng Bộ nhớ được định trước sử dụng ngoại vi DMA tới thanh ghi I2C\_DR bất cứ lúc nào nếu TxE được set. Để sắp đặt 1 kênh DMA cho truyền thông I2C, thực hiện chuỗi sau: (x là số kênh truyền)
+
+- Set địa chỉ thanh ghi I2C_DR trong thanh ghi DMA\_CPARx. Dữ liệu sẽ được chuyển từ địa chỉ này từ bộ nhớ sau mỗi sự kiện TxE.
+- Set địa chỉ bộ nhớ trong thanh ghi DMA\_CMARx. Dữ liệu sẽ được tải vào I2C\_DR từ bộ nhớ sau mỗi sự kiện TxE.
+- Cấu hình tổng số byte được truyền đi trong thanh ghi DMA\_CNDTRx. Sau mỗi sự kiện TxE, giá trị này sẽ giảm bớt.
+- Cấu hình độ ưu tiên kênh truyền sử dụng bit PL[0:1] trong thanh ghi DMA\_CCRx.
 - Set bit DIR, trong thanh ghi DMA_CCRx, và cấu hình ngắt sau 1 nửa được truyền hoặc truyền hết hoàn toàn phụ thuộc vào yêu cầu ứng dụng.
-- Khởi động kênh truyền bằng cách set bit EN trong thanh ghi DMA_CCRx.
-- 
+- Khởi động kênh truyền bằng cách set bit EN trong thanh ghi DMA\_CCRx.
+
+
 **Không được cho phép bit ITBUFEN trong thanh ghi I2C_CR2 nếu DMA được sử để phát dữ liệu**.
 
 ### Interrupt I2C
 ![](http://i.imgur.com/gYsrHf9.png)
 
 Hình trên là các ngắt của I2C (vẫn còn thiếu, nhưng chưa sử dụng nên không đề cập).
+
 ![](http://i.imgur.com/F52IY7L.png)
 
 Hình trên là bảng interrupt mapping.
