@@ -27,10 +27,17 @@ Một Handel `hi2c1` được tạo ra, rất dễ nhận ra các cấu hình qu
 #### Chế độ hoạt động Polling IO
 
 - MASTER
+
+
 > `HAL_I2C_Master_Transmit(I2C_HandleTypeDef *hi2c, uint16_t DevAddress, uint8_t *pData, uint16_t Size, uint32_t Timeout)`
 > `HAL_I2C_Master_Receive(I2C_HandleTypeDef *hi2c, uint16_t DevAddress, uint8_t *pData, uint16_t Size, uint32_t Timeout)`
+>
 > Các tham biến truyền vào như Handle, địa chỉ máy đích, con trỏ dữ liệu để đệm dữ liệu, kích thước dữ liệu gửi, thời gian Timeout. Ở đây người thực hiện không giải thích nghĩa tường minh 1 phần do kiến thức chưa đủ, 1 phần do việc sử dụng HAL đã che rất nhiều. Rất khó để tìm kiếm  thanh ghi nào đó.
+
+
 - SLAVE
+
+
 >`HAL_I2C_Slave_Receive(I2C_HandleTypeDef *hi2c, uint8_t *pData, uint16_t Size, uint32_t Timeout)`
 >`HAL_I2C_Slave_Transmit(I2C_HandleTypeDef *hi2c, uint8_t *pData, uint16_t Size, uint32_t Timeout)`
 >Cũng như hàm của Master, có các tham số truyền như Handle, con trỏ dữ liệu để đệm dữ liệu, kích thước dữ liệu gửi/nhận, thời gian Timeout. Ở đây không có tham số địa chỉ đích như ở Master do đây là slave.
