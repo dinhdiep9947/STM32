@@ -40,6 +40,7 @@ Một Handel `hi2c1` được tạo ra, rất dễ nhận ra các cấu hình qu
 
 >`HAL_I2C_Slave_Receive(I2C_HandleTypeDef *hi2c, uint8_t *pData, uint16_t Size, uint32_t Timeout)`
 >`HAL_I2C_Slave_Transmit(I2C_HandleTypeDef *hi2c, uint8_t *pData, uint16_t Size, uint32_t Timeout)`
+>
 >Cũng như hàm của Master, có các tham số truyền như Handle, con trỏ dữ liệu để đệm dữ liệu, kích thước dữ liệu gửi/nhận, thời gian Timeout. Ở đây không có tham số địa chỉ đích như ở Master do đây là slave.
 
 #### Chế độ hoạt động Interrupt IO
@@ -51,6 +52,8 @@ Một Handel `hi2c1` được tạo ra, rất dễ nhận ra các cấu hình qu
 >Lưu ý rằng phải khai báo ngắt cho I2C đang hoạt động.
 
 - SLAVE
+
+
 >Cũng như chế độ MASTER, ở chế độ SLAVE chỉ cân thay thế `Master` bằng `Slave`.
 >Trong trường hợp truyền bị lỗi, hàm ` HAL_I2C_ErrorCallback()` được thực thi và chúng ta cũng có thể tùy biến code của mình trong đó. Do các hàm truyền nhận sẽ trả về trạng thái khi thực thi xong. Truyền/nhận thành công hàm trả về kết quả `HAL_OK`
 
