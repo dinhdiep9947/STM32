@@ -1,7 +1,7 @@
 # Sử Dụng Oled SSD1306 Với STM32F411
 Trong unit này, sử dụng Oled SSD1306 để hiển thị ký tự mong muốn. Các hàm trong unit này sử dụng thư viện HAL, Oled này sử dụng giao thức I2C. Các hàm chủ yếu tham khảo từ thư viện của Tilen Majerle. (Thanks Tilen Majerle)
 
-Do người sử dụng chưa tìm được cách sử dụng chung biến con trỏ để khai báo I2C nên các chưa tách được các hàm ra thành một file .h riêng, mà phải để chung với file main. Vấn đề này là do khởi tạo code bằng CubeMX. Chú ý rằng, CubeMX là một công cụ trợ giúp chúng ta tạo code đơn giản, trức quan và không phải ghi nhớ nhiều những thanh ghi, những cấu hình. Chứ không phải là một giải pháp để giải quyết bài toán. 
+Chú ý rằng, CubeMX là một công cụ trợ giúp chúng ta tạo code đơn giản, trức quan và không phải ghi nhớ nhiều những thanh ghi, những cấu hình. Chứ không phải là một giải pháp để giải quyết bài toán. 
 
 ## OLED I2C SSD1306
 
