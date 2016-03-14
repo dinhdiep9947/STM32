@@ -83,8 +83,18 @@ Nguồn clock RTCCLK có thể cung cấp bởi HSE/128, LSE hoặc LSI. Sự l�
  - Trạng thái RTC không được đảm bảo nếu nguồn VDD bị tắt hoặc bộ điều chỉnh điện áp nội bị tắt.
  - Bit DPB (Disable backup domain write protection) trong thanh ghi điều khiển Power phải được set = 1.
 
-
 LSE clock ở trong miền Backup, còn HSE và LSI clock thì không. 
+
+### RTC subsecond
+
+RTC trong STM32Fxxx cũng hỗ trợ chính xác subsecond. Ở đây có 1 vấn đề, subsecond phụ thuộc vào giá trị prescaler. RTC STM32F103 có 2 giá trị predivision:
+
+- ASYNC: prescaler 7-bit bất đồng bộ, giá trị tối đa có thể là 0x7F.
+- SYNC: prescaler 15-bit đồng bộ, giá trị tối đa có thể là 0x7FFF.
+
+Có 2 giá trị sử dụng để fix việc không chính xác cho RTC. Biểu thức cho xung RTC 1Hz là: `rtc_1hz_clock RTC_IN_CLK(LSI or LSE)/((ASYNC +1) * (SYNC + 1))` bằng cách thay đổi 2 giá trị này, chúng ta có thể tùy ý set prescaler cho RTC nhưng kết quả luôn là 1.
+
+"Độ phân giải" Subsecond phụ thuộc vào giá trị SYNC. Subsecond là 1 bộ đếm xuống, khi nó về 0, số giây được cập nhập và giá trị reload của nó giống như giá trị SYNC. 
 
 ## Thiết lập trên STM32CubeMX và code Keil C
 
@@ -154,3 +164,4 @@ Hàm lấy thời gian RTC hiện tại. Fomart có định dạng theo Bin và 
 Chuyển đổi này chỉ được thực thi khi không có hoạt động dịch trong lúc chờ.
 
 **Chú ý rằng phải gọi hàm HAL\_RTC\_GetDate sau khi gọi hàm HAL\_RTC\_GetTime() để mở khóa giá trị trong những thanh ghi calendar bậc cao đảm bảo sự đồng nhất giữa giá trị thời gian và ngày tháng. Nêu không không đọc được giá trị thời gian.**
+
