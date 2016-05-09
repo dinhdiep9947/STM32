@@ -1,0 +1,26 @@
+--cpu Cortex-M3
+"test_exint\stm32f1xx_it.o"
+"test_exint\stm32f1xx_hal_msp.o"
+"test_exint\main.o"
+"test_exint\ssd1306.o"
+"test_exint\tm_stm32_fonts.o"
+"test_exint\display.o"
+"test_exint\stm32f1xx_hal_gpio.o"
+"test_exint\stm32f1xx_hal_pwr.o"
+"test_exint\stm32f1xx_hal_cortex.o"
+"test_exint\stm32f1xx_hal_rcc_ex.o"
+"test_exint\stm32f1xx_hal_dma.o"
+"test_exint\stm32f1xx_hal_rcc.o"
+"test_exint\stm32f1xx_hal_flash_ex.o"
+"test_exint\stm32f1xx_hal_tim_ex.o"
+"test_exint\stm32f1xx_hal_flash.o"
+"test_exint\stm32f1xx_hal_tim.o"
+"test_exint\stm32f1xx_hal.o"
+"test_exint\stm32f1xx_hal_i2c.o"
+"test_exint\stm32f1xx_hal_uart.o"
+"test_exint\startup_stm32f103xe.o"
+"test_exint\system_stm32f1xx.o"
+--library_type=microlib --strict --scatter "Test_ExInt\Test_ExInt.sct"
+--diag_suppress=L6329 --summary_stderr --info summarysizes --map --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list "Test_ExInt.map" -o Test_ExInt\Test_ExInt.axf
