@@ -1,6 +1,6 @@
 # UART
 ## Đặc điểm UART
-Giao thức truyền không đồng bộ UART hiện nay rất phổ biến trong các thiết bị.  Các phiên bản trước của Keil C, cộng động đã viết sẵn các chuẩn truyền thông, nhưng sau khi **ST** phát triển thư viện hàm HAL thì những thư viện của dộng đồng không còn sử dụng được. Tuy các thanh ghi, cách hoạt động vẫn như thế, nhưng tên của chúng đã không còn giống. Tuy thế chúng ta cũng cần phải tìm hiểu một số đặc điểm của STM32Fxxx.
+Giao thức truyền không đồng bộ UART hiện nay rất phổ biến trong các thiết bị. **ST** phát triển thư viện hàm HAL cho những kết nối ngoại vi, trong đó có USART.
 
 Chúng ta cần chú ý 1 vài đặc điểm khi cài đặt UART:
 
