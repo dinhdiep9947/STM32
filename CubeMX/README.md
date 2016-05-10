@@ -1,6 +1,6 @@
 # STM32CubeMX
 
-STM32CubeMX là phần mềm giúp cho người dùng mới bắt đầu phát triển dễ dàng hơn, thời gian và tiền bạc. 
+STM32CubeMX là phần mềm giúp cho người dùng mới bắt đầu phát triển dễ dàng hơn. 
 
 ## Tùy chọn STM32Cube Firmware Library Package
 
